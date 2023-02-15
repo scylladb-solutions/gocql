@@ -273,7 +273,7 @@ func (s *Session) dialWithoutObserver(ctx context.Context, host *HostInfo, cfg *
 		errorHandler:  errorHandler,
 		compressor:    cfg.Compressor,
 		session:       s,
-		streams:       streams.New(cfg.ProtoVersion),
+		streams:       s.streamIDGenerator(cfg.ProtoVersion),
 		host:          host,
 		frameObserver: s.frameObserver,
 		w: &deadlineWriter{
@@ -292,6 +292,13 @@ func (s *Session) dialWithoutObserver(ctx context.Context, host *HostInfo, cfg *
 	}
 
 	return c, nil
+}
+
+func (s *Session) streamIDGenerator(protocol int) *streams.IDGenerator {
+	if s.cfg.MaxRequestsPerConn > 0 {
+		return streams.NewLimited(s.cfg.MaxRequestsPerConn)
+	}
+	return streams.New(protocol)
 }
 
 func (c *Conn) init(ctx context.Context, dialedHost *DialedHost) error {
