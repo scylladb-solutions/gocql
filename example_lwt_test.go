@@ -3,7 +3,7 @@ package gocql_test
 import (
 	"context"
 	"fmt"
-	"github.com/gocql/gocql"
+	"github.com/scylladb-solutions/gocql"
 	"log"
 )
 

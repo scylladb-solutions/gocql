@@ -174,7 +174,7 @@ func (s *Session) handleNodeEvent(frames []frame) {
 		}
 
 		// ignore events we received if they were disabled
-		// see https://github.com/gocql/gocql/issues/1591
+		// see https://github.com/scylladb-solutions/gocql/issues/1591
 		switch f.change {
 		case "UP":
 			if !s.cfg.Events.DisableNodeStatusEvents {

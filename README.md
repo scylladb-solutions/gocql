@@ -2,7 +2,7 @@
 
 ![Build](https://github.com/scylladb/gocql/workflows/Build/badge.svg)
 
-This is a fork of [gocql](https://github.com/gocql/gocql) package that we created at Scylla.
+This is a fork of [gocql](https://github.com/scylladb-solutions/gocql) package that we created at Scylla.
 It contains extensions to tokenAwareHostPolicy supported by the Scylla 2.3 and onwards.
 It allows driver to select a connection to a particular shard on a host based on the token.
 This eliminates passing data between shards and significantly reduces latency. 
@@ -10,8 +10,8 @@ The protocol extension spec is available [here](https://github.com/scylladb/scyl
 
 There are open pull requests to merge the functionality to the upstream project:
  
-* [gocql/gocql#1210](https://github.com/gocql/gocql/pull/1210)
-* [gocql/gocql#1211](https://github.com/gocql/gocql/pull/1211).
+* [gocql/gocql#1210](https://github.com/scylladb-solutions/gocql/pull/1210)
+* [gocql/gocql#1211](https://github.com/scylladb-solutions/gocql/pull/1211).
 
 It also provides support for shard aware ports, a faster way to connect to all shards, details available in [blogpost](https://www.scylladb.com/2021/04/27/connect-faster-to-scylla-with-a-shard-aware-port/).
 
@@ -23,12 +23,12 @@ In general, the gocql team will focus on supporting the current and previous ver
 Installation
 ------------
 
-This is a drop-in replacement to gocql, it reuses the `github.com/gocql/gocql` import path.
+This is a drop-in replacement to gocql, it reuses the `github.com/scylladb-solutions/gocql` import path.
 
 Add the following line to your project `go.mod` file.
 
 ```
-replace github.com/gocql/gocql => github.com/scylladb/gocql latest
+replace github.com/scylladb-solutions/gocql => github.com/scylladb/gocql latest
 ```
 
 and run 
