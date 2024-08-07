@@ -1,4 +1,4 @@
-module github.com/gocql/gocql/lz4
+module github.com/scylladb-solutions/gocql/lz4
 
 go 1.16
 
